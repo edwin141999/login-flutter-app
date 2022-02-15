@@ -10,6 +10,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Material App',
       home: Scaffold(
+        backgroundColor: const Color(0xffffffff),
         body: Center(
             child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
                 icon: const Icon(
                   Icons.g_mobiledata,
                   color: Colors.white,
-                  size: 50,
+                  // size: 50,
                 ),
                 label: const Text(
                   'Continuar con Google',
@@ -45,6 +46,8 @@ class MyApp extends StatelessWidget {
                 style: ElevatedButton.styleFrom(
                   primary: const Color(0xff3169f5),
                   textStyle: const TextStyle(fontSize: 20),
+                  alignment: Alignment.centerLeft,
+                  padding: const EdgeInsets.only(left: 20),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30.0),
                   ),
@@ -69,6 +72,8 @@ class MyApp extends StatelessWidget {
                 style: ElevatedButton.styleFrom(
                   primary: const Color(0xff324fa5),
                   textStyle: const TextStyle(fontSize: 20),
+                  alignment: Alignment.centerLeft,
+                  padding: const EdgeInsets.only(left: 20),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30.0),
                   ),
@@ -99,6 +104,8 @@ class MyApp extends StatelessWidget {
                     width: 3,
                   ),
                   textStyle: const TextStyle(fontSize: 20),
+                  alignment: Alignment.centerLeft,
+                  padding: const EdgeInsets.only(left: 20),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30.0),
                   ),
@@ -108,7 +115,8 @@ class MyApp extends StatelessWidget {
             Column(
               children: [
                 SizedBox(
-                  child: ElevatedButton(
+                  width: 300,
+                  child: OutlinedButton(
                     onPressed: () {},
                     child: const Text(
                       'Entrar como invitado',
@@ -121,11 +129,15 @@ class MyApp extends StatelessWidget {
                       primary: Colors.transparent,
                       shadowColor: Colors.black12,
                       textStyle: const TextStyle(fontSize: 20),
+                      side: const BorderSide(
+                        color: Colors.transparent,
+                      ),
                     ),
                   ),
                 ),
                 SizedBox(
-                  child: ElevatedButton(
+                  width: 300,
+                  child: OutlinedButton(
                     onPressed: () {},
                     child: const Text(
                       'Entrar como vendedor',
@@ -138,6 +150,9 @@ class MyApp extends StatelessWidget {
                       primary: Colors.transparent,
                       shadowColor: Colors.black12,
                       textStyle: const TextStyle(fontSize: 20),
+                      side: const BorderSide(
+                        color: Colors.transparent,
+                      ),
                     ),
                   ),
                 ),
@@ -155,7 +170,7 @@ class MyApp extends StatelessWidget {
                         fontSize: 14,
                       ),
                     ),
-                    ElevatedButton(
+                    OutlinedButton(
                       onPressed: () {},
                       child: const Text(
                         'Iniciar sesion',
@@ -168,6 +183,9 @@ class MyApp extends StatelessWidget {
                         primary: Colors.transparent,
                         shadowColor: Colors.black12,
                         textStyle: const TextStyle(fontSize: 20),
+                        side: const BorderSide(
+                          color: Colors.transparent,
+                        ),
                       ),
                     ),
                   ],
