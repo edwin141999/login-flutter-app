@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:login_flutter/src/pages/home_header.dart';
+import 'package:login_flutter/src/splash/splash_view.dart';
 
 void main() => runApp(const MyApp());
 
@@ -8,13 +9,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Material App',
-      initialRoute: 'InitialHeader',
-      routes: {
-        // 'InitialPage':(BuildContext context) => HomePage()
-        'InitialHeader': (BuildContext context) => const HomeHeader()
-      },
+      // initialRoute: 'InitialHeader',
+      // routes: {
+      //   'InitialHeader': (BuildContext context) => const HomeHeader()
+      // },
+      home: SplashView(),
       // home: Scaffold(
       //   backgroundColor: const Color(0xffffffff),
       //   body: Center(
