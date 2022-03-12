@@ -16,28 +16,20 @@ class _OnBoardingState extends State<OnBoarding> {
     {
       "text": 'ESPARCIMIENTO',
       "text1": 'lorem ipsum',
-      'image': 'assets/images/flutterLogo.jpg'
+      'image': 'assets/images/B1.png'
     },
     {
       "text": 'ADOPCION',
       "text1": 'Nulla faucibus tullus',
-      'image': 'assets/images/flutterLogo.jpg'
+      'image': 'assets/images/B2.png'
     },
     {
       "text": 'HOSPITALIDAD',
       "text1": 'Nulla faucibus tullus',
-      'image': 'assets/images/flutterLogo.jpg'
+      'image': 'assets/images/B3.png'
     },
-    {
-      "text": 'Hola onboarding 4',
-      "text1": '789',
-      'image': 'assets/images/flutterLogo.jpg'
-    },
-    {
-      "text": 'Hola onboarding 5',
-      "text1": '000',
-      'image': 'assets/images/flutterLogo.jpg'
-    },
+    {"text": 'VETERINARIA', "text1": '789', 'image': 'assets/images/B4.png'},
+    {"text": 'TIENDA', "text1": '000', 'image': 'assets/images/B5.png'},
   ];
 
   @override
@@ -77,12 +69,56 @@ class _OnBoardingState extends State<OnBoarding> {
                           (index) => newMethod(index: index),
                         ),
                       ),
-                      //AQUI VA EL BOTON, boton con borde, ? verde : blanco el texto es continuar
+                      buttonMethod(
+                          width: 350.0,
+                          height: 50.0,
+                          index: onBoardingDatas.length - 1),
                     ],
                   ),
                 ),
               ],
             ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Container buttonMethod(
+      {required double width, required double height, required int index}) {
+    return Container(
+      width: width,
+      height: height,
+      margin: const EdgeInsets.only(top: 160),
+      decoration: BoxDecoration(
+        color: pages == index
+            ? ColorSelect.btnBackgroundBo2
+            : ColorSelect.btnBackgroundBo1,
+        borderRadius: BorderRadius.circular(50),
+        border: Border.all(
+          color:
+              pages == index ? ColorSelect.btnTextBo2 : ColorSelect.btnTextBo1,
+          width: 2.0,
+        ),
+      ),
+      child: OutlinedButton(
+        onPressed: () => {},
+        style: ButtonStyle(
+          side: MaterialStateProperty.all(
+            BorderSide.lerp(
+              const BorderSide(style: BorderStyle.none),
+              const BorderSide(style: BorderStyle.none),
+              10.0,
+            ),
+          ),
+        ),
+        child: Text(
+          pages == index ? 'Continuar' : 'Siguiente',
+          style: TextStyle(
+            color: pages == index
+                ? ColorSelect.btnTextBo2
+                : ColorSelect.btnTextBo1,
+            fontSize: 16.0,
           ),
         ),
       ),

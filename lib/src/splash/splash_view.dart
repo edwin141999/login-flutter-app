@@ -5,6 +5,7 @@ import 'dart:ui' as ui;
 
 //Vistas
 import 'package:login_flutter/src/pages/on_boarding.dart';
+import 'package:login_flutter/src/styles/colors/colors_views.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({Key? key}) : super(key: key);
@@ -19,7 +20,7 @@ class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
     super.initState();
-    _loadImage('assets/images/flutterLogo.jpg');
+    _loadImage('assets/images/splash.png');
     _toOnboarding();
   }
 
@@ -64,17 +65,46 @@ class _SplashCanvas extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint();
-    paint.color = Colors.amber;
+    paint.color = ColorSelect.btnBackgroundBo2;
     paint.style = PaintingStyle.fill;
+    // paint.style = PaintingStyle.stroke;
     paint.strokeWidth = 5;
 
     final path = Path();
-    path.lineTo(0, size.height * .20);
+    final path2 = Path();
+
+    //ARRIBA
+    //son 3 lineas
+    path.lineTo(0, size.height * .08);
     path.quadraticBezierTo(
-        size.width * .50, size.height * .28, size.width, size.height * .20);
+      size.width * .22, //izq
+      size.height * .15, //inmedio der
+      size.width * .35, //inmedio izq
+      size.height * .09, //der
+    );
+    // path.lineTo(size.width, 0);
+    path.quadraticBezierTo(
+      size.width * .5,
+      size.height * -.01,
+      size.width,
+      size.height * .09,
+    );
+    // izq,centro,der
     path.lineTo(size.width, 0);
 
+    //ABAJO
+    path2.lineTo(0, size.height);
+
+    path2.quadraticBezierTo(
+      size.width * .77,
+      size.height * .8,
+      size.width,
+      size.height,
+    );
+    path2.lineTo(0, size.height);
+
     canvas.drawPath(path, paint);
+    canvas.drawPath(path2, paint);
 
     canvas.scale(.24, .24);
 
