@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:login_flutter/src/pages/content_boarding.dart';
+import 'package:login_flutter/src/pages/home_page.dart';
 import 'package:login_flutter/src/styles/colors/colors_views.dart';
 
 class OnBoarding extends StatefulWidget {
@@ -12,6 +13,9 @@ class OnBoarding extends StatefulWidget {
 
 class _OnBoardingState extends State<OnBoarding> {
   int pages = 0;
+
+  final PageController _pageViewController = PageController(initialPage: 0);
+
   List<Map<String, String>> onBoardingDatas = [
     {
       "text": 'ESPARCIMIENTO',
@@ -45,6 +49,7 @@ class _OnBoardingState extends State<OnBoarding> {
                 Expanded(
                   flex: 4,
                   child: PageView.builder(
+                    controller: _pageViewController,
                     onPageChanged: (value) {
                       setState(() {
                         pages = value;
@@ -102,7 +107,19 @@ class _OnBoardingState extends State<OnBoarding> {
         ),
       ),
       child: OutlinedButton(
-        onPressed: () => {},
+        onPressed: () => {
+          _pageViewController.nextPage(
+            duration: const Duration(milliseconds: 1000),
+            curve: Curves.easeOutQuint,
+          ),
+          if (pages == index)
+            {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => const HomePage()),
+              )
+            }
+        },
         style: ButtonStyle(
           side: MaterialStateProperty.all(
             BorderSide.lerp(
