@@ -1,4 +1,6 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:login_flutter/src/pages/login_page.dart';
 import 'package:login_flutter/src/pages/register_page.dart';
 import 'package:login_flutter/src/styles/colors/colors_views.dart';
 
@@ -57,7 +59,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 ),
-                const Padding(padding: EdgeInsets.all(11.0)),
+                const Padding(padding: EdgeInsets.all(10.0)),
                 SizedBox(
                   //FACEBOOK
                   width: 350,
@@ -145,7 +147,7 @@ class _HomePageState extends State<HomePage> {
                     style: ElevatedButton.styleFrom(
                       primary: Colors.transparent,
                       shadowColor: Colors.black12,
-                      textStyle: const TextStyle(fontSize: 20),
+                      textStyle: const TextStyle(fontSize: 18),
                       side: const BorderSide(
                         color: Colors.transparent,
                       ),
@@ -167,7 +169,7 @@ class _HomePageState extends State<HomePage> {
                     style: ElevatedButton.styleFrom(
                       primary: Colors.transparent,
                       shadowColor: Colors.black12,
-                      textStyle: const TextStyle(fontSize: 20),
+                      textStyle: const TextStyle(fontSize: 18),
                       side: const BorderSide(
                         color: Colors.transparent,
                       ),
@@ -176,39 +178,71 @@ class _HomePageState extends State<HomePage> {
                 ),
               ],
             ),
-            SizedBox(
-              width: 350,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text(
-                    '¿Ya tienes una cuenta?',
+            RichText(
+              text: TextSpan(
+                style: const TextStyle(fontSize: 18),
+                children: <TextSpan>[
+                  const TextSpan(
+                    text: '¿Ya tienes una cuenta? ',
                     style: TextStyle(
-                      color: Color(0xff64686f),
-                      fontSize: 18,
+                      color: ColorSelect.txtBoSubHe,
                     ),
                   ),
-                  OutlinedButton(
-                    onPressed: () {},
-                    child: const Text(
-                      'Iniciar sesion',
-                      style: TextStyle(
+                  TextSpan(
+                    text: 'Iniciar Sesion',
+                    style: const TextStyle(
                         color: ColorSelect.paginatorNext,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      primary: Colors.transparent,
-                      shadowColor: Colors.black12,
-                      textStyle: const TextStyle(fontSize: 18),
-                      side: const BorderSide(
-                        color: Colors.transparent,
-                      ),
-                    ),
+                        fontWeight: FontWeight.bold),
+                    recognizer: TapGestureRecognizer()
+                      ..onTap = () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const LoginPage(),
+                            ),
+                          ),
                   ),
                 ],
               ),
             ),
+            // SizedBox(
+            //   width: 350,
+            //   child: Row(
+            //     mainAxisAlignment: MainAxisAlignment.center,
+            //     children: [
+            //       const Text(
+            //         '¿Ya tienes una cuenta?',
+            //         style: TextStyle(
+            //           color: Color(0xff64686f),
+            //           fontSize: 18,
+            //         ),
+            //       ),
+            //       OutlinedButton(
+            //         onPressed: () {
+            //           Navigator.pushReplacement(
+            //             context,
+            //             MaterialPageRoute(
+            //                 builder: (context) => const LoginPage()),
+            //           );
+            //         },
+            //         child: const Text(
+            //           'Iniciar sesion',
+            //           style: TextStyle(
+            //             color: ColorSelect.paginatorNext,
+            //             fontWeight: FontWeight.bold,
+            //           ),
+            //         ),
+            //         style: ElevatedButton.styleFrom(
+            //           primary: Colors.transparent,
+            //           shadowColor: Colors.black12,
+            //           textStyle: const TextStyle(fontSize: 18),
+            //           side: const BorderSide(
+            //             color: Colors.transparent,
+            //           ),
+            //         ),
+            //       ),
+            //     ],
+            //   ),
+            // ),
           ],
         ),
       ),

@@ -21,6 +21,7 @@ class _LoginPageState extends State<LoginPage> {
         backgroundColor: ColorSelect.txtBoHe,
         leading: IconButton(
           onPressed: () => {Navigator.pop(context)},
+          color: ColorSelect.paginatorNext,
           icon: const Icon(Icons.arrow_back),
         ),
         toolbarHeight: 48,
