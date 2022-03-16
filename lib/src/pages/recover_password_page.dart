@@ -17,6 +17,7 @@ class _RecoverPasswordState extends State<RecoverPassword> {
         backgroundColor: ColorSelect.txtBoHe,
         leading: IconButton(
             onPressed: () => {Navigator.pop(context)},
+            color: ColorSelect.paginatorNext,
             icon: const Icon(Icons.arrow_back)),
         toolbarHeight: 48,
         actions: [
