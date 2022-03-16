@@ -1,6 +1,5 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:login_flutter/src/pages/home_page.dart';
 import 'package:login_flutter/src/pages/recover_password_page.dart';
 import 'package:login_flutter/src/pages/register_page.dart';
 import 'package:login_flutter/src/styles/colors/colors_views.dart';
@@ -21,10 +20,7 @@ class _LoginPageState extends State<LoginPage> {
         title: const Text('Iniciar Sesion'),
         backgroundColor: ColorSelect.txtBoHe,
         leading: IconButton(
-          onPressed: () => {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const HomePage()))
-          },
+          onPressed: () => {Navigator.pop(context)},
           icon: const Icon(Icons.arrow_back),
         ),
         toolbarHeight: 48,
