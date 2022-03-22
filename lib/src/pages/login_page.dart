@@ -16,6 +16,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: const Text('Iniciar Sesion'),
         backgroundColor: ColorSelect.txtBoHe,
@@ -33,6 +34,7 @@ class _LoginPageState extends State<LoginPage> {
           )
         ],
       ),
+      backgroundColor: ColorSelect.btnBackgroundBo1,
       body: Center(
         child: Column(
           children: [
@@ -75,6 +77,7 @@ class _LoginPageState extends State<LoginPage> {
                               height: 50,
                               margin: const EdgeInsets.only(top: 3),
                               child: TextFormField(
+                                keyboardType: TextInputType.emailAddress,
                                 textAlignVertical: TextAlignVertical.center,
                                 decoration: InputDecoration(
                                   contentPadding:

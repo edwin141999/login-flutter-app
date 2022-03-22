@@ -12,6 +12,7 @@ class _RecoverPasswordState extends State<RecoverPassword> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: const Text('Recuperar Contraseña'),
         backgroundColor: ColorSelect.txtBoHe,
@@ -28,6 +29,7 @@ class _RecoverPasswordState extends State<RecoverPassword> {
           )
         ],
       ),
+      backgroundColor: ColorSelect.btnBackgroundBo1,
       body: Center(
         child: Column(
           children: [
@@ -67,6 +69,7 @@ class _RecoverPasswordState extends State<RecoverPassword> {
                           height: 50,
                           margin: const EdgeInsets.only(top: 3),
                           child: TextFormField(
+                            keyboardType: TextInputType.emailAddress,
                             textAlignVertical: TextAlignVertical.center,
                             decoration: InputDecoration(
                               contentPadding: const EdgeInsets.only(left: 20),
@@ -92,13 +95,15 @@ class _RecoverPasswordState extends State<RecoverPassword> {
                           ),
                         ),
                         Container(
-                          padding: const EdgeInsets.symmetric(
-                              vertical: 0, horizontal: 15),
+                          // padding: const EdgeInsets.symmetric(
+                          //     vertical: 0, horizontal: 15),
+                          margin: const EdgeInsets.only(
+                              top: 10, left: 15, right: 0),
                           child: const Text(
                             'Ingrese su correo electrónico registrado y le enviaremos un correo electronico que contiene un enlace para restablecer su contraseña.',
                             style: TextStyle(
-                              color: ColorSelect.btnTextBo3,
-                              fontSize: 13,
+                              color: Color.fromARGB(239, 189, 189, 189),
+                              fontSize: 14,
                               fontWeight: FontWeight.w500,
                             ),
                           ),

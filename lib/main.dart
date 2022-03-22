@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:login_flutter/src/pages/home_header.dart';
+import 'package:login_flutter/src/pages/progress_view.dart';
 import 'package:login_flutter/src/splash/splash_view.dart';
 
 void main() => runApp(const MyApp());
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
       //   'InitialHeader': (BuildContext context) => const HomeHeader()
       // },
       home: SplashView(),
+      // home: ProgressView(),
     );
   }
 }

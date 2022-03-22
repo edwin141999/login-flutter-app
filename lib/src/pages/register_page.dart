@@ -1,5 +1,7 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:login_flutter/src/pages/home_page.dart';
+import 'package:login_flutter/src/pages/login_page.dart';
 import 'package:login_flutter/src/styles/colors/colors_views.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -12,6 +14,7 @@ class RegisterPage extends StatefulWidget {
 class _RegisterPageState extends State<RegisterPage> {
   bool _passwordVisible = false;
   int val = -1;
+  bool _pressed = false;
 
   @override
   void initState() {
@@ -22,18 +25,14 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false, //para que no se haya desborde
       appBar: AppBar(
         title: const Text('Registrate'),
         backgroundColor: ColorSelect.txtBoHe,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           color: ColorSelect.paginatorNext,
-          onPressed: () => {
-            Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(builder: (context) => const HomePage()),
-            )
-          },
+          onPressed: () => {Navigator.pop(context)},
         ),
         toolbarHeight: 48,
         actions: [
@@ -47,155 +46,205 @@ class _RegisterPageState extends State<RegisterPage> {
       backgroundColor: ColorSelect.btnBackgroundBo1,
       body: Center(
         child: Column(
-          // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          // mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Container(
-              margin: const EdgeInsets.only(top: 10),
-              child: const Text(
-                'Crea una cuenta para empezar a usar la app',
-                style: TextStyle(
-                  color: ColorSelect.btnTextBo1,
-                  fontSize: 18,
-                  fontWeight: FontWeight.w600,
+            const Expanded(
+              flex: 2,
+              child: Center(
+                child: Padding(
+                  padding: EdgeInsets.only(bottom: 18),
+                  child: Text(
+                    'Crea una cuenta para empezar a usar la app',
+                    style: TextStyle(
+                      color: ColorSelect.btnTextBo1,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
                 ),
               ),
             ),
-            Column(
-              children: [
-                SizedBox(
-                  width: 340,
-                  child: Column(
-                    children: [
-                      const Align(
-                        alignment: Alignment.centerLeft,
-                        child: Text(
-                          'Nombre',
-                          style: TextStyle(
-                            color: ColorSelect.btnTextBo1,
-                            fontSize: 18,
-                            fontWeight: FontWeight.w900,
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        width: 350,
-                        height: 50,
-                        child: TextFormField(
-                          decoration: InputDecoration(
-                            contentPadding: const EdgeInsets.symmetric(
-                              vertical: 0,
-                              horizontal: 22,
+            Expanded(
+              flex: 8,
+              child: Column(
+                children: [
+                  SizedBox(
+                    width: 340,
+                    child: Column(
+                      children: [
+                        const Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            'Nombre',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w900,
                             ),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(15),
-                            ),
-                            hintText: 'Nombre completo',
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                ),
-                const Padding(padding: EdgeInsets.all(10.0)),
-                SizedBox(
-                  width: 340,
-                  child: Column(
-                    children: [
-                      const Align(
-                        alignment: Alignment.centerLeft,
-                        child: Text(
-                          'Correo electronico',
-                          style: TextStyle(
-                            color: ColorSelect.btnTextBo1,
-                            fontSize: 18,
-                            fontWeight: FontWeight.w900,
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        width: 350,
-                        height: 50,
-                        child: TextFormField(
-                          keyboardType: TextInputType.emailAddress,
-                          decoration: InputDecoration(
-                              contentPadding: const EdgeInsets.symmetric(
-                                vertical: 0,
-                                horizontal: 22,
-                              ),
-                              border: OutlineInputBorder(
+                        Container(
+                          width: 350,
+                          height: 50,
+                          margin: const EdgeInsets.only(top: 3),
+                          child: TextFormField(
+                            textAlignVertical: TextAlignVertical.center,
+                            decoration: InputDecoration(
+                              contentPadding: const EdgeInsets.only(left: 20),
+                              enabledBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(15),
+                                borderSide: const BorderSide(
+                                  width: 1.5,
+                                  color: ColorSelect.btnTextBo3,
+                                ),
                               ),
-                              hintText: 'Direccion de correo'),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(15),
+                                borderSide: const BorderSide(
+                                  width: 1.5,
+                                  color: ColorSelect.btnTextBo3,
+                                ),
+                              ),
+                              hintStyle: const TextStyle(
+                                color: ColorSelect.btnTextBo3,
+                              ),
+                              hintText: 'Nombre completo',
+                            ),
+                          ),
                         ),
-                      ),
-                    ],
+                        const SizedBox(
+                          height: 25,
+                        )
+                      ],
+                    ),
                   ),
-                ),
-                const Padding(padding: EdgeInsets.all(10.0)),
-                SizedBox(
-                  width: 340,
-                  child: Column(
-                    children: [
-                      const Align(
-                        alignment: Alignment.centerLeft,
-                        child: Text(
-                          'Contraseña',
-                          style: TextStyle(
-                            color: ColorSelect.btnTextBo1,
-                            fontSize: 18,
-                            fontWeight: FontWeight.w900,
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        width: 350,
-                        height: 50,
-                        child: TextFormField(
-                          obscureText: !_passwordVisible,
-                          enableSuggestions: false,
-                          autocorrect: false,
-                          decoration: InputDecoration(
-                            contentPadding: const EdgeInsets.symmetric(
-                              vertical: 0,
-                              horizontal: 22,
-                            ),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(15),
-                            ),
-                            hintText: 'Contraseña',
-                            suffixIcon: IconButton(
-                              icon: Icon(_passwordVisible
-                                  ? Icons.visibility
-                                  : Icons.visibility_off),
-                              onPressed: () {
-                                setState(() {
-                                  _passwordVisible = !_passwordVisible;
-                                });
-                              },
+                  SizedBox(
+                    width: 340,
+                    child: Column(
+                      children: [
+                        const Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            'Correo electronico',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w900,
                             ),
                           ),
                         ),
-                      ),
-                      Container(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 10, horizontal: 15),
-                        child: const Text(
-                          'La contraseña debe contener caracteres, numeros y simbolos con un minimo de 8 caracteres',
-                          style: TextStyle(
-                            color: ColorSelect.txtBoSubHe,
-                            fontSize: 13,
-                            fontWeight: FontWeight.w500,
+                        Container(
+                          width: 350,
+                          height: 50,
+                          margin: const EdgeInsets.only(top: 3),
+                          child: TextFormField(
+                            keyboardType: TextInputType.emailAddress,
+                            textAlignVertical: TextAlignVertical.center,
+                            decoration: InputDecoration(
+                                contentPadding: const EdgeInsets.only(left: 20),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(15),
+                                  borderSide: const BorderSide(
+                                    width: 1.5,
+                                    color: ColorSelect.btnTextBo3,
+                                  ),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(15),
+                                  borderSide: const BorderSide(
+                                    width: 1.5,
+                                    color: ColorSelect.btnTextBo3,
+                                  ),
+                                ),
+                                hintStyle: const TextStyle(
+                                  color: ColorSelect.btnTextBo3,
+                                ),
+                                hintText: 'Direccion de correo'),
                           ),
                         ),
-                      ),
-                    ],
+                        const SizedBox(
+                          height: 25,
+                        )
+                      ],
+                    ),
                   ),
-                ),
-                ListTile(
-                  title: RichText(
-                    text: const TextSpan(
+                  SizedBox(
+                    width: 340,
+                    child: Column(
+                      children: [
+                        const Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            'Contraseña',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w900,
+                            ),
+                          ),
+                        ),
+                        Container(
+                          width: 350,
+                          height: 50,
+                          margin: const EdgeInsets.only(top: 3),
+                          child: TextFormField(
+                            obscureText: !_passwordVisible,
+                            enableSuggestions: false,
+                            autocorrect: false,
+                            textAlignVertical: TextAlignVertical.center,
+                            decoration: InputDecoration(
+                              contentPadding: const EdgeInsets.only(left: 20),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(15),
+                                borderSide: const BorderSide(
+                                  width: 1.5,
+                                  color: ColorSelect.btnTextBo3,
+                                ),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(15),
+                                borderSide: const BorderSide(
+                                  width: 1.5,
+                                  color: ColorSelect.btnTextBo3,
+                                ),
+                              ),
+                              hintStyle: const TextStyle(
+                                color: ColorSelect.btnTextBo3,
+                              ),
+                              hintText: 'Contraseña',
+                              suffixIcon: IconButton(
+                                icon: Icon(_passwordVisible
+                                    ? Icons.visibility
+                                    : Icons.visibility_off),
+                                onPressed: () {
+                                  setState(() {
+                                    _passwordVisible = !_passwordVisible;
+                                  });
+                                },
+                              ),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          margin: const EdgeInsets.only(
+                              top: 15, left: 12, right: 0, bottom: 20),
+                          height: 30,
+                          child: const Text(
+                            'La contraseña debe contener caracteres, numeros y simbolos con un minimo de 8 caracteres',
+                            style: TextStyle(
+                              color: Color.fromARGB(239, 189, 189, 189),
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500,
+                              fontFamily: 'Hack',
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  ListTile(
+                    title: RichText(
+                      text: const TextSpan(
                         style: TextStyle(
                           fontSize: 15,
                         ),
@@ -204,84 +253,100 @@ class _RegisterPageState extends State<RegisterPage> {
                               text: 'Al registrarme, acepto los ',
                               style: TextStyle(color: Colors.black)),
                           TextSpan(
-                              text:
-                                  'terminos y condiciones y la rpolitica de privacidad',
+                              text: 'terminos y condiciones ',
                               style:
-                                  TextStyle(color: ColorSelect.paginatorNext))
+                                  TextStyle(color: ColorSelect.paginatorNext)),
+                          TextSpan(
+                              text: 'y la ',
+                              style: TextStyle(color: Colors.black)),
+                          TextSpan(
+                              text: 'politica de privacidad',
+                              style:
+                                  TextStyle(color: ColorSelect.paginatorNext)),
+                        ],
+                      ),
+                    ),
+                    leading: Padding(
+                      padding: const EdgeInsets.only(left: 20),
+                      child: GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            _pressed = !_pressed;
+                          });
+                        },
+                        child: _pressed
+                            ? const Icon(
+                                Icons.radio_button_checked,
+                                color: ColorSelect.txtBoHe,
+                                size: 20,
+                              )
+                            : const Icon(
+                                Icons.radio_button_unchecked,
+                                color: Colors.grey,
+                                size: 20,
+                              ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Expanded(
+              flex: 2,
+              child: Column(
+                children: [
+                  Container(
+                    width: 350,
+                    height: 55,
+                    decoration: BoxDecoration(
+                      color: ColorSelect.btnBackgroundBo2,
+                      borderRadius: BorderRadius.circular(50),
+                    ),
+                    child: OutlinedButton(
+                      onPressed: () => {},
+                      style: ButtonStyle(
+                        side: MaterialStateProperty.all(
+                          BorderSide.lerp(
+                            const BorderSide(style: BorderStyle.none),
+                            const BorderSide(style: BorderStyle.none),
+                            10.0,
+                          ),
+                        ),
+                      ),
+                      child: const Text(
+                        'Crear cuenta',
+                        style: TextStyle(
+                          color: ColorSelect.btnTextBo2,
+                          fontSize: 18.0,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const Padding(padding: EdgeInsets.only(top: 15)),
+                  RichText(
+                    text: TextSpan(
+                        style: const TextStyle(fontSize: 18),
+                        children: <TextSpan>[
+                          const TextSpan(
+                              text: '¿Ya tienes una cuenta? ',
+                              style: TextStyle(color: ColorSelect.txtBoSubHe)),
+                          TextSpan(
+                            text: 'Iniciar Sesion',
+                            style: const TextStyle(
+                              color: ColorSelect.paginatorNext,
+                              fontWeight: FontWeight.bold,
+                            ),
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () => Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => const LoginPage(),
+                                    ),
+                                  ),
+                          ),
                         ]),
                   ),
-                  leading: Radio(
-                    value: 0,
-                    groupValue: val,
-                    onChanged: (value) {
-                      setState(() {
-                        val = value as int;
-                      });
-                    },
-                    activeColor: ColorSelect.txtBoHe,
-                  ),
-                ),
-              ],
-            ),
-            const Padding(padding: EdgeInsets.all(10.0)),
-            Container(
-              width: 350,
-              height: 50,
-              // margin: const EdgeInsets.only(top: 150),
-              decoration: BoxDecoration(
-                color: ColorSelect.btnBackgroundBo2,
-                borderRadius: BorderRadius.circular(50),
-              ),
-              child: OutlinedButton(
-                onPressed: () => {},
-                style: ButtonStyle(
-                  side: MaterialStateProperty.all(
-                    BorderSide.lerp(
-                      const BorderSide(style: BorderStyle.none),
-                      const BorderSide(style: BorderStyle.none),
-                      10.0,
-                    ),
-                  ),
-                ),
-                child: const Text(
-                  'Crear cuenta',
-                  style: TextStyle(
-                    color: ColorSelect.btnTextBo2,
-                    fontSize: 18.0,
-                  ),
-                ),
-              ),
-            ),
-            SizedBox(
-              width: 300,
-              // height: 48,
-              child: Row(
-                children: [
-                  const Text(
-                    '¿Ya tienes una cuenta?',
-                    style: TextStyle(
-                      color: Color(0xff64686f),
-                      fontSize: 14,
-                    ),
-                  ),
-                  OutlinedButton(
-                    onPressed: () {},
-                    child: const Text(
-                      'Iniciar sesion',
-                      style: TextStyle(
-                        color: Color(0xfffc1460),
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      primary: Colors.transparent,
-                      shadowColor: Colors.black12,
-                      textStyle: const TextStyle(fontSize: 20),
-                      side: const BorderSide(
-                        color: Colors.transparent,
-                      ),
-                    ),
-                  ),
+                  // const Padding(padding: EdgeInsets.only(bottom: 20)),
                 ],
               ),
             ),

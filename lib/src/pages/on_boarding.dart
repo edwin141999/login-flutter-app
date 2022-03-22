@@ -19,7 +19,7 @@ class _OnBoardingState extends State<OnBoarding> {
   List<Map<String, String>> onBoardingDatas = [
     {
       "text": 'ESPARCIMIENTO',
-      "text1": 'lorem ipsum',
+      "text1": 'Brindamos todos los servicios para consentir a tu mascosta',
       'image': 'assets/images/B1.png'
     },
     {

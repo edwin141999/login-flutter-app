@@ -9,6 +9,7 @@ class ColorSelect {
 
   static const btnTextBo1 = Color(0xff757575);
   static const btnTextBo2 = Color(0xffffffff);
+  static const btnTextBo3 = Color(0xff9b9b9b);
 
   static const btnBackgroundBo1 = Color(0xffffffff);
   static const btnBackgroundBo2 = Color(0xff76a75a);

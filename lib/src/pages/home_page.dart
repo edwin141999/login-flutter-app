@@ -94,7 +94,7 @@ class _HomePageState extends State<HomePage> {
                   height: 55,
                   child: ElevatedButton.icon(
                     onPressed: () => {
-                      Navigator.pushReplacement(
+                      Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: (context) => const RegisterPage()),
