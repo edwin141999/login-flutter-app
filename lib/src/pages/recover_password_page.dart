@@ -24,8 +24,11 @@ class _RecoverPasswordState extends State<RecoverPassword> {
         actions: [
           Container(
             width: 100,
-            child: Image.asset('assets/images/splash.png'),
-            color: Colors.white,
+            child: Image.asset(
+              'assets/images/splash.png',
+              color: Colors.white,
+            ),
+            color: Colors.transparent,
           )
         ],
       ),
