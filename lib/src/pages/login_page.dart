@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:login_flutter/src/pages/recover_password_page.dart';
 import 'package:login_flutter/src/pages/register_page.dart';
+import 'package:login_flutter/src/pages/home/home_screen.dart';
 import 'package:login_flutter/src/styles/colors/colors_views.dart';
 
 class LoginPage extends StatefulWidget {
@@ -208,7 +209,12 @@ class _LoginPageState extends State<LoginPage> {
                     borderRadius: BorderRadius.circular(50),
                   ),
                   child: OutlinedButton(
-                    onPressed: () => {},
+                    onPressed: () => {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const UserPage()))
+                    },
                     style: ButtonStyle(
                       side: MaterialStateProperty.all(
                         BorderSide.lerp(

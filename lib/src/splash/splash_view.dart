@@ -75,20 +75,17 @@ class _SplashCanvas extends CustomPainter {
 
     //ARRIBA
     //son 3 lineas
-    path.lineTo(0, size.height * .08);
+    path.lineTo(0, size.height * 0.1);
+
+    path.quadraticBezierTo(size.width * 0.20, size.height * 0.17,
+        size.width * 0.35, size.height * 0.13);
+
+    path.quadraticBezierTo(size.width * 0.55, size.height * 0.07,
+        size.width * 0.8, size.height * 0.1);
+
     path.quadraticBezierTo(
-      size.width * .22, //izq
-      size.height * .15, //inmedio der
-      size.width * .35, //inmedio izq
-      size.height * .09, //der
-    );
-    // path.lineTo(size.width, 0);
-    path.quadraticBezierTo(
-      size.width * .5,
-      size.height * -.01,
-      size.width,
-      size.height * .09,
-    );
+        size.width * 0.98, size.height * 0.13, size.width, size.height * 0.12);
+
     // izq,centro,der
     path.lineTo(size.width, 0);
 
