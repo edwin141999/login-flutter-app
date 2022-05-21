@@ -38,7 +38,7 @@ class _UserPageState extends State<UserPage> {
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Colors.white,
         currentIndex: 1,
-        iconSize: 50,
+        iconSize: 30,
         backgroundColor: ColorSelect.txtBoHe,
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.cancel), label: ''),
@@ -49,5 +49,3 @@ class _UserPageState extends State<UserPage> {
     );
   }
 }
-
-

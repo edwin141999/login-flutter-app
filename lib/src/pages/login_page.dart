@@ -12,7 +12,7 @@ import 'dart:async';
 
 AlertDialog getAlertDialog(title, content, ctx) {
   return AlertDialog(
-    title: const Text("Login failed"),
+    title: Text('$title'),
     content: Text('$content'),
     actions: <Widget>[
       TextButton(
@@ -40,10 +40,10 @@ class _LoginData {
 class UserData extends _LoginData {
   String token = '';
   String username = '';
-  // late int id;
+  late int id;
 
   void addData(Map<String, dynamic> responseMap) {
-    // id = responseMap["id"];
+    id = responseMap["id"];
     username = responseMap["email"];
     token = responseMap["token"];
   }
