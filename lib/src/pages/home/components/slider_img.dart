@@ -16,9 +16,9 @@ class _SliderImgState extends State<SliderImg> {
   int activePage = 0;
   int activeInitialPage = 999;
   List<String> images = [
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTIZccfNPnqalhrWev-Xo7uBhkor57_rKbkw&usqp=CAU",
-    "https://wallpaperaccess.com/full/2637581.jpg",
-    "https://uhdwallpapers.org/uploads/converted/20/01/14/the-mandalorian-5k-1920x1080_477555-mm-90.jpg",
+    'assets/images/paisaje1.jpg',
+    'assets/images/paisaje2.jpg',
+    'assets/images/paisaje3.jpg',
   ];
 
   @override
@@ -77,7 +77,7 @@ class _SliderImgState extends State<SliderImg> {
       curve: Curves.easeInCubic,
       margin: EdgeInsets.all(margin),
       decoration: BoxDecoration(
-          image: DecorationImage(image: NetworkImage(images[pagePosition]))),
+          image: DecorationImage(image: AssetImage(images[pagePosition]))),
     );
   }
 

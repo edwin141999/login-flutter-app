@@ -9,10 +9,11 @@ class Carousel extends StatefulWidget {
 }
 
 class _CarouselState extends State<Carousel> {
+  
   List<String> images = [
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTIZccfNPnqalhrWev-Xo7uBhkor57_rKbkw&usqp=CAU",
-    "https://wallpaperaccess.com/full/2637581.jpg",
-    "https://uhdwallpapers.org/uploads/converted/20/01/14/the-mandalorian-5k-1920x1080_477555-mm-90.jpg",
+    'assets/images/paisaje1.jpg',
+    'assets/images/paisaje2.jpg',
+    'assets/images/paisaje3.jpg',
   ];
 
   @override
@@ -20,7 +21,7 @@ class _CarouselState extends State<Carousel> {
     return Container(
       height: 100,
       decoration: const BoxDecoration(
-        color: ColorSelect.btnBackgroundBo2,
+        color: ColorSelect.txtBoHe,
         borderRadius: BorderRadius.all(Radius.circular(30.0)),
       ),
       margin: const EdgeInsets.all(20),
@@ -34,7 +35,7 @@ class _CarouselState extends State<Carousel> {
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             image: DecorationImage(
-              image: NetworkImage(images[index % 3]),
+              image: AssetImage(images[index % 3]),
               fit: BoxFit.cover,
             ),
           ),

@@ -54,7 +54,8 @@ class _RegisterPageState extends State<RegisterPage> {
   }
 
   Future<void> register() async {
-    var url = Uri.parse('http://192.168.100.13:4000/users/register');
+    var url = Uri.parse('http://192}.168.100.13:4000/users/register');
+    // var url = Uri.parse('http://192.168.111.110:4000/users/register');
     return await Future.delayed(
         const Duration(seconds: 2),
         () => {

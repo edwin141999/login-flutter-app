@@ -16,11 +16,7 @@ class _UserPageState extends State<UserPage> {
       appBar: AppBar(
         title: const Text('Home Page'),
         backgroundColor: ColorSelect.txtBoHe,
-        leading: IconButton(
-          onPressed: () => {Navigator.pop(context)},
-          color: ColorSelect.paginatorNext,
-          icon: const Icon(Icons.arrow_back),
-        ),
+        automaticallyImplyLeading: false,
         toolbarHeight: 48,
         actions: [
           Container(
