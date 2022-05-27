@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:login_flutter/src/models/CardInfo.dart';
-import 'package:login_flutter/src/pages/details/components/body.dart';
+import 'package:login_flutter/src/pages/details/components/body_details.dart';
 import 'package:login_flutter/src/styles/colors/colors_views.dart';
 
 class DetailsScreen extends StatelessWidget {
@@ -12,7 +12,7 @@ class DetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(context),
-      body: Body(
+      body: BodyDetails(
         card: card,
       ),
     );

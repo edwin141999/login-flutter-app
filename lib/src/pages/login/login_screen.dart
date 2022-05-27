@@ -1,7 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:login_flutter/src/pages/recover_password_page.dart';
-import 'package:login_flutter/src/pages/register_page.dart';
+import 'package:login_flutter/src/pages/register/register_page.dart';
 import 'package:login_flutter/src/pages/home/home_screen.dart';
 import 'package:login_flutter/src/styles/colors/colors_views.dart';
 

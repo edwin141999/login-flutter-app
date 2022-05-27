@@ -1,6 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:login_flutter/src/pages/login_page.dart';
+import 'package:login_flutter/src/pages/login/login_screen.dart';
 import 'package:login_flutter/src/styles/colors/colors_views.dart';
 
 //SERVER

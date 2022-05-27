@@ -6,8 +6,8 @@ import 'package:login_flutter/src/pages/home/components/gridcard.dart';
 import 'package:login_flutter/src/pages/home/components/slider_img.dart';
 import 'package:login_flutter/src/styles/colors/colors_views.dart';
 
-class Body extends StatelessWidget {
-  const Body({Key? key}) : super(key: key);
+class BodyHome extends StatelessWidget {
+  const BodyHome({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

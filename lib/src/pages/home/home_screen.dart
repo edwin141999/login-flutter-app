@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:login_flutter/src/pages/home/components/body.dart';
+import 'package:login_flutter/src/pages/home/components/body_home.dart';
 import 'package:login_flutter/src/styles/colors/colors_views.dart';
 
 class UserPage extends StatefulWidget {
@@ -30,7 +30,7 @@ class _UserPageState extends State<UserPage> {
         ],
       ),
       backgroundColor: ColorSelect.btnBackgroundBo1,
-      body: const Body(),
+      body: const BodyHome(),
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Colors.white,
         currentIndex: 1,

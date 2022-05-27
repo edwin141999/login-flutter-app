@@ -16,7 +16,7 @@ class GridCard extends StatelessWidget {
       onTap: press,
       child: Card(
         child: Padding(
-          padding: const EdgeInsets.all(20.0),
+          padding: const EdgeInsets.all(5.0),
           child: Center(
             child: Image.asset(
               card.image,

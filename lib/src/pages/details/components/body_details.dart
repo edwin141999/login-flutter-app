@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:login_flutter/src/models/CardInfo.dart';
 
-class Body extends StatelessWidget {
+class BodyDetails extends StatelessWidget {
   final CardInfo card;
-  const Body({Key? key, required this.card}) : super(key: key);
+  const BodyDetails({Key? key, required this.card}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
