@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:login_flutter/src/pages/content_boarding.dart';
 import 'package:login_flutter/src/pages/session/session_screen.dart';
 import 'package:login_flutter/src/styles/colors/colors_views.dart';

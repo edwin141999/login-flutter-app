@@ -1,29 +1,44 @@
 import 'package:flutter/material.dart';
 import 'package:login_flutter/src/models/CardInfo.dart';
+import 'package:login_flutter/src/styles/colors/colors_views.dart';
 
 class GridCard extends StatelessWidget {
   final CardInfo card;
-  final Function() press;
   const GridCard({
     Key? key,
     required this.card,
-    required this.press,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: press,
-      child: Card(
-        child: Padding(
-          padding: const EdgeInsets.all(5.0),
-          child: Center(
-            child: Image.asset(
+    return Card(
+      margin: const EdgeInsets.only(left: 12),
+      elevation: 0,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+        side: const BorderSide(
+          color: ColorSelect.btnTextBo3,
+          width: 2,
+        ),
+      ),
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Image.asset(
               card.image,
-              width: 100,
-              height: 100,
+              width: 160,
+              height: 120,
             ),
-          ),
+            Text(
+              card.title,
+              style: const TextStyle(
+                color: ColorSelect.btnBackgroundBo2,
+                fontWeight: FontWeight.w900,
+                fontSize: 20,
+              ),
+            ),
+          ],
         ),
       ),
     );

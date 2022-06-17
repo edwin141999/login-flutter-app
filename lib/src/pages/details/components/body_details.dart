@@ -16,13 +16,13 @@ class BodyDetails extends StatelessWidget {
             width: 200,
             height: 200,
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 30.0),
-            child: Text(
-              card.description,
-              style: const TextStyle(fontSize: 30.0),
-            ),
-          ),
+          // Padding(
+          //   padding: const EdgeInsets.only(top: 30.0),
+          //   child: Text(
+          //     card.description,
+          //     style: const TextStyle(fontSize: 30.0),
+          //   ),
+          // ),
         ],
       ),
     );

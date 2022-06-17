@@ -9,7 +9,6 @@ class Carousel extends StatefulWidget {
 }
 
 class _CarouselState extends State<Carousel> {
-  
   List<String> images = [
     'assets/images/paisaje1.jpg',
     'assets/images/paisaje2.jpg',
